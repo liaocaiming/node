@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/common.css' />
+  </head>
+  <body>
+    <div class="logo_container">
+      <div class="title">微商户助手</div>
+      <div class="content">
+        <form name="myForm">
+          <input type="text" name='useName' placeholder="请输入用户名" id="useName">
+          <input type="text" name='password' placeholder="请输入密码" id="password">
+        </form>
+        <div class="btn" id="logo_tn">登录</div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var btn = document.getElementById('logo_tn');
+      btn.addEventListener('click', function (event) {
+        var useName = document.getElementById('useName');
+        var password = document.getElementById('password');
+        if (useName == '') {
+           return alert('请输入用户名')
+        }
+        if (password == '') {
+          return alert('请输入密码')
+        }
+      })
+    </script>
+  </body>
+</html>
