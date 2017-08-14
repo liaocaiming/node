@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="logo_container">
-      <div class="title">微商户助手<%= title %></div>
+      <div class="title">微商户助手</div>
       <div class="content">
         <form name="myForm">
           <input type="text" name='useName' placeholder="请输入用户名" id="useName">
@@ -16,7 +16,7 @@
         <div class="btn" id="logo_tn">登录</div>
       </div>
     </div>
-    <script src="/javascripts/fetch"></script>
+    <script src="/javascripts/jquery.js"></script>
     <script type="text/javascript">
       var btn = document.getElementById('logo_tn');
       btn.addEventListener('click', function (event) {
@@ -28,6 +28,9 @@
         if (password == '') {
           return alert('请输入密码')
         }
+      })
+      $.get("/home-ajax", function (res) {
+        console.log(res, "5555")
       })
     </script>
   </body>
