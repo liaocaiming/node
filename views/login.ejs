@@ -11,7 +11,7 @@
       <div class="content">
         <form name="myForm">
           <input type="text" name='useName' placeholder="请输入用户名" id="useName">
-          <input type="text" name='password' placeholder="请输入密码" id="password">
+          <input type="password" name='password' placeholder="请输入密码" id="password">
         </form>
         <div class="btn" id="logo_tn">登录</div>
       </div>
@@ -20,17 +20,22 @@
     <script type="text/javascript">
       var btn = document.getElementById('logo_tn');
       btn.addEventListener('click', function (event) {
-        var useName = document.getElementById('useName');
-        var password = document.getElementById('password');
+        var useName = document.getElementById('useName').value;
+        var password = document.getElementById('password').value;
         if (useName == '') {
-           return alert('请输入用户名')
+           return window.alert('请输入用户名')
         }
         if (password == '') {
-          return alert('请输入密码')
+          return window.alert('请输入密码')
         }
-      })
-      $.get("/get-all-roduct-by-cart", function (res) {
-        console.log(res, "5555")
+        $.post("/use-login", {name: useName, passWord: password}, function (res) {
+          if (res.code != 0) {
+            window.alert(res.msg)
+          } else {
+            window.localStorage.useInfo = JSON.stringify({ name: useName, passWord: password })
+            location.href = "../home"
+          }
+        })
       })
     </script>
   </body>

@@ -42,10 +42,7 @@ function login(parms, callback) {
     })
   })
 }
-login({ name: "liaocaiming", passWord: "123456"}, function(db, result) {
-  console.log(result, 99999)
-})
-
 module.exports = {
-  getAllProductByCart
+  getAllProductByCart,
+  login
 }
