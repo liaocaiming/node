@@ -1,8 +1,9 @@
+var models = require("../models/index")
 function routerAjax(app) {
-  app.get("/home-ajax", function (req, res, next) {
-    console.log(888)
-    res.send({
-      title: 66666
+  app.get("/get-all-roduct-by-cart", function (req, res, next) {
+    models.getAllProductByCart(function(db, result) {
+      res.send(result);
+      db.close();
     })
   })
 }

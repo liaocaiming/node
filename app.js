@@ -35,30 +35,30 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-var MongoClient = require('mongodb').MongoClient;
-var DB_CONN_STR = 'mongodb://localhost:27017/wxchat';
+// var MongoClient = require('mongodb').MongoClient;
+// var DB_CONN_STR = 'mongodb://localhost:27017/wxchat';
  
-var insertData = function(db, callback) {  
-    //连接到表 site
-    var collection = db.collection('cart');
-    //插入数据
-    collection.find({}, function(err, result) { 
-        if(err)
-        {
-            console.log('Error:'+ err);
-            return;
-        }     
-        callback(result);
-    });
-}
+// var insertData = function(db, callback) {  
+//     //连接到表 site
+//     var collection = db.collection('cart');
+//     //插入数据
+//     collection.find({}, function(err, result) { 
+//         if(err)
+//         {
+//             console.log('Error:'+ err);
+//             return;
+//         }     
+//         callback(result);
+//     });
+// }
  
-MongoClient.connect(DB_CONN_STR, function(err, db) {
-    console.log("连接成功！");
-    insertData(db, function(result) {
-        console.log(bodyParser.json(result));
-        db.close();
-    });
-})
+// MongoClient.connect(DB_CONN_STR, function(err, db) {
+//     console.log("连接成功！");
+//     insertData(db, function(result) {
+//         console.log(bodyParser.json(result));
+//         db.close();
+//     });
+// })
 
 // error handler
 app.use(function(err, req, res, next) {
