@@ -4,10 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var index = require('./routes/index');
-var users = require('./routes/users');
+var routes = require('./routes/routes');
+var routerAjax = require('./routes/routerAjax');
 
 var app = express();
+var router = express.Router();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,8 +23,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // page router
-app.use("/", index)
-app.use('/users', users);
+routes(app)
+routerAjax(app)
 
 
 // ajax router
